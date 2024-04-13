@@ -121,8 +121,48 @@ class Tree:
                 queue.append(node.left)
             if node.right:
                 queue.append(node.right)
+    
+    #Breadth First Search is similar to the Level_order_Traversel we just have to stop when we find the goal state
+    def Breadth_First_Search(self, root, element):
+        if root is None:
+            return False
+        
+        queue= deque()
+        queue.append(root)
+        
+        while queue:
+            node = queue.popleft()
+            if node.data == element:
+                return True
             
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.right(node.right)
                 
+
+        return False
+    
+    # in depth first search we store the right node first so that it is poped at the last....................
+    def Depth_First_Search(self,root, element):
+        if root is None:
+            return None
+        
+        stack = deque()
+        stack.append(root)
+        
+        while stack:
+            node = stack.pop()
+            
+            if node.data == element:
+                return True
+            
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+                
+        return False
                 
 tree = Tree()
 tree.insert(4)
