@@ -1,2 +1,2 @@
-
-def decode(value, ):
+def decode(value):
+    

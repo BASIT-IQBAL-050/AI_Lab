@@ -1,8 +1,13 @@
-def encode(binary_string):
-    decimal_value = int(binary_string, 2)
-    return decimal_value
+def encode(binary):
+    """Converts a binary string or list of binary digits to a decimal integer."""
+    if isinstance(binary, str):
+        binary = binary.strip()  # Remove any leading/trailing whitespace
+        decimal = int(binary, 2)  # Convert binary string to decimal integer
+    elif isinstance(binary, list):
+        binary_str = ''.join(str(bit) for bit in binary)  # Convert list to string
+        decimal = int(binary_str, 2)  # Convert binary string to decimal integer
+    else:
+        raise ValueError("Input must be a binary string or list of binary digits.")
 
-# Example usage
-binary_representation = "010"
-decimal_value = encode(binary_representation)
-print(f"The decimal representation of binary '{binary_representation}' is: {decimal_value}")
+    return decimal
+
